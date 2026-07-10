@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard - GEXTEK JM</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    display:flex;
+    min-height:100vh;
+    background:#F3F4F6;
+}
+
+.sidebar{
+    width:250px;
+    background:#1E3A8A;
+    color:white;
+    padding:20px;
+}
+
+.logo{
+    width:100px;
+    height:100px;
+    display:block;
+    margin:0 auto 20px;
+    border-radius:50%;
+    background:white;
+    padding:5px;
+}
+
+.sidebar h3{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar ul li{
+    margin:10px 0;
+}
+
+.sidebar ul li a{
+    color:white;
+    text-decoration:none;
+    display:block;
+    padding:12px;
+    border-radius:5px;
+    transition:0.3s;
+}
+
+.sidebar ul li a:hover{
+    background:#2563EB;
+}
+
+.logout{
+    background:#DC2626;
+}
+
+.content{
+    flex:1;
+    padding:40px;
+}
+
+.content h1{
+    color:#1E3A8A;
+    margin-bottom:10px;
+}
+
+.content p{
+    margin-bottom:20px;
+}
+
+.cards{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.card{
+    background:white;
+    width:220px;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.15);
+    text-align:center;
+}
+
+.card h3{
+    color:#1E3A8A;
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#555;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav class="sidebar">
+
+<img src="logo.jpeg" alt="Logo" class="logo">
+
+<h3>Panel Principal</h3>
+
+<ul>
+<li><a href="#">🏠 Dashboard</a></li>
+<li><a href="#">📦 Gestión de Productos</a></li>
+<li><a href="#">📊 Inventario</a></li>
+<li><a href="#">🚚 Proveedores</a></li>
+<li><a href="#">👥 Usuarios</a></li>
+<li><a href="#">📈 Reportes</a></li>
+<li><a href="index.html" class="logout">🚪 Cerrar sesión</a></li>
+</ul>
+
+</nav>
+
+<main class="content">
+
+<h1>Bienvenido al Sistema</h1>
+
+<p>Seleccione una opción del menú para comenzar a gestionar la información de GEXTEK JM.</p>
+
+<div class="cards">
+
+    <div class="card">
+        <h3>📦 Productos</h3>
+        <p>Administrar productos registrados.</p>
+    </div>
+
+    <div class="card">
+        <h3>📊 Inventario</h3>
+        <p>Control de existencias y stock.</p>
+    </div>
+
+    <div class="card">
+        <h3>👥 Usuarios</h3>
+        <p>Gestión de usuarios del sistema.</p>
+    </div>
+
+    <div class="card">
+        <h3>📈 Reportes</h3>
+        <p>Consultar informes y estadísticas.</p>
+    </div>
+
+</div>
+
+</main>
+
+</body>
+</html>
