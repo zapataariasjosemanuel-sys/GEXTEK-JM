@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-﻿https://github.com/zapataariasjosemanuel-sys/GEXTEK-JM-Spring
-=======
-﻿https://github.com/zapataariasjosemanuel-sys/GEXTEK-JM
->>>>>>> origin/main
+﻿Repositorio GEXTEK JM: https://github.com/zapataariasjosemanuel-sys/GEXTEK-JM
