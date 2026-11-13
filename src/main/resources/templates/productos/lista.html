@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - GEXTEK JM</title>
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+</head>
+<body>
+    <main class="contenedor">
+        <a class="enlace-volver" th:href="@{/}">&larr; Inicio</a>
+
+        <header class="encabezado">
+            <h1>
+                <img class="logo" th:src="@{/img/logo.jpeg}" alt="Logo de GEXTEK JM">
+                Gestión de productos
+            </h1>
+            <p>Registra, consulta, edita y elimina los productos del inventario.</p>
+        </header>
+
+        <!-- Mensajes que llegan desde el controlador (flash attributes) -->
+        <p class="mensaje mensaje--exito" role="status" th:if="${exito}" th:text="${exito}"></p>
+        <p class="mensaje mensaje--error" role="alert" th:if="${error}" th:text="${error}"></p>
+
+        <!-- Búsqueda: petición GET con el parámetro q -->
+        <form class="busqueda" method="get" th:action="@{/productos}">
+            <label class="solo-lectores" for="q">Buscar productos</label>
+            <input id="q" name="q" th:value="${q}"
+                   placeholder="Buscar por código, nombre o categoría">
+            <button class="boton" type="submit">Buscar</button>
+            <a class="boton boton--secundario" th:href="@{/productos}">Limpiar</a>
+            <a class="boton boton--exito" th:href="@{/productos/nuevo}">Nuevo producto</a>
+        </form>
+
+        <div class="tabla-contenedor">
+            <table class="tabla">
+                <caption class="solo-lectores">Listado de productos del inventario</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Código</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Categoría</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Precio (COP)</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Una fila por cada producto del modelo -->
+                    <tr th:each="p : ${productos}">
+                        <td th:text="${p.id}">1</td>
+                        <td th:text="${p.codigo}">P001</td>
+                        <td th:text="${p.nombre}">Nombre</td>
+                        <td th:text="${p.categoria}">Categoría</td>
+                        <td th:text="${p.cantidad}">0</td>
+                        <td th:text="${#numbers.formatDecimal(p.precio, 1, 'POINT', 2, 'COMMA')}">0,00</td>
+                        <td>
+                            <a class="boton" th:href="@{/productos/{id}/editar(id=${p.id})}">Editar</a>
+                            <form class="formulario-en-linea" method="post"
+                                  th:action="@{/productos/{id}/eliminar(id=${p.id})}"
+                                  onsubmit="return confirm('¿Eliminar este producto?');">
+                                <button class="boton boton--peligro" type="submit">Eliminar</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr th:if="${#lists.isEmpty(productos)}">
+                        <td colspan="7">No hay productos para mostrar.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <footer class="pie">GEXTEK JM - Módulo de productos (Spring Boot)</footer>
+    </main>
+</body>
+</html>

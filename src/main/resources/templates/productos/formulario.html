@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de producto - GEXTEK JM</title>
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+</head>
+<body>
+    <main class="contenedor">
+        <a class="enlace-volver" th:href="@{/productos}">&larr; Volver a la lista</a>
+
+        <header class="encabezado">
+            <h1 th:text="${producto.id == null ? 'Nuevo producto' : 'Editar producto'}">Producto</h1>
+        </header>
+
+        <!-- Formulario enlazado al objeto "producto"; se envía por POST -->
+        <form class="formulario" method="post" th:action="@{/productos/guardar}" th:object="${producto}">
+            <input type="hidden" th:field="*{id}">
+
+            <div class="campo">
+                <label for="codigo">Código</label>
+                <input type="text" th:field="*{codigo}" maxlength="50">
+                <span class="error-campo" th:if="${#fields.hasErrors('codigo')}" th:errors="*{codigo}"></span>
+            </div>
+
+            <div class="campo">
+                <label for="nombre">Nombre</label>
+                <input type="text" th:field="*{nombre}" maxlength="150">
+                <span class="error-campo" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
+            </div>
+
+            <div class="campo">
+                <label for="categoria">Categoría</label>
+                <input type="text" th:field="*{categoria}" maxlength="100">
+                <span class="error-campo" th:if="${#fields.hasErrors('categoria')}" th:errors="*{categoria}"></span>
+            </div>
+
+            <div class="campo">
+                <label for="cantidad">Cantidad</label>
+                <input type="number" th:field="*{cantidad}" min="0" step="1">
+                <span class="error-campo" th:if="${#fields.hasErrors('cantidad')}" th:errors="*{cantidad}"></span>
+            </div>
+
+            <div class="campo">
+                <label for="precio">Precio</label>
+                <input type="number" th:field="*{precio}" min="0" step="0.01">
+                <span class="error-campo" th:if="${#fields.hasErrors('precio')}" th:errors="*{precio}"></span>
+            </div>
+
+            <div class="campo campo--boton">
+                <button class="boton" type="submit">Guardar producto</button>
+                <a class="boton boton--secundario" th:href="@{/productos}">Cancelar</a>
+            </div>
+        </form>
+    </main>
+</body>
+</html>

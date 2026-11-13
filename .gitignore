@@ -1,5 +1,26 @@
+<<<<<<< HEAD
+﻿target/
+.idea/
+.vscode/
+*.class
+*.log
+
+# Archivos locales y credenciales
+.env
+.env.*
+!.env.example
+application-local.properties
+application-secret.properties
+
+# Archivos temporales del sistema
+Thumbs.db
+.DS_Store
+
+salida.txt
+=======
 target/
 .idea/
 .vscode/
 nbproject/private/
 *.class
+>>>>>>> origin/main
