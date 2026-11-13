@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de sesión - GEXTEK JM</title>
+
+    <style>
+        * { box-sizing: border-box; font-family: Arial, sans-serif; }
+        body {
+            margin: 0; min-height: 100vh; display: flex;
+            justify-content: center; align-items: center;
+            background: #F3F4F6; padding: 20px;
+        }
+        .container {
+            background: white; width: 100%; max-width: 370px;
+            padding: 30px; border: 1px solid #D1D5DB;
+            border-radius: 12px; text-align: center;
+            box-shadow: 0 4px 15px #00000015;
+        }
+        .logo { width: 90px; height: 90px; object-fit: contain; }
+        h1 { color: #1E3A8A; font-size: 25px; }
+        p { color: #6B7280; }
+        label { display: block; text-align: left; margin: 15px 0 6px; }
+        input {
+            width: 100%; padding: 12px;
+            border: 1px solid #9CA3AF; border-radius: 6px;
+        }
+        button {
+            width: 100%; padding: 12px; margin-top: 20px;
+            background: #1E3A8A; color: white; border: 0;
+            border-radius: 6px; cursor: pointer;
+        }
+        button:hover { background: #2563EB; }
+        a { display: block; margin-top: 18px; color: #1E3A8A; }
+    </style>
+</head>
+
+<body>
+<main class="container">
+    <img src="logo.jpeg" alt="Logo de GEXTEK JM" class="logo">
+    <h1>GEXTEK JM</h1>
+    <p>Sistema de gestión de inventarios</p>
+
+    <form id="loginForm">
+        <label for="usuario">Usuario</label>
+        <input id="usuario" name="usuario" type="text"
+               placeholder="Ingrese su usuario" required>
+
+        <label for="clave">Contraseña</label>
+        <input id="clave" name="clave" type="password"
+               placeholder="Ingrese su contraseña" required>
+
+        <button type="submit">Iniciar sesión</button>
+    </form>
+
+    <a href="registro.html">Registrar usuario</a>
+</main>
+
+<script>
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const usuario = document.getElementById("usuario").value.trim();
+        const clave = document.getElementById("clave").value;
+
+        // Credenciales temporales para demostración local.
+        if (usuario === "admin" && clave === "1234") {
+            window.location.href = "dashboard.html";
+        } else {
+            window.location.href = "error.html";
+        }
+    });
+</script>
+</body>
+</html>
