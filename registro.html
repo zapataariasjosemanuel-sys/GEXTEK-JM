@@ -1,67 +1,69 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Registro - GEXTEK JM</title>
-
-<style>
-    
-
-body{
-font-family:Arial;
-background:#FFFFFF;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
-}
-
-.container{
-border:1px solid #6B7280;
-padding:30px;
-width:320px;
-text-align:center;
-}
-
-h2{
-color:#1E3A8A;
-}
-
-input{
-width:90%;
-padding:8px;
-margin:6px;
-border:1px solid #6B7280;
-}
-
-button{
-background:#1E3A8A;
-color:white;
-border:none;
-padding:10px;
-width:100%;
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - GEXTEK JM</title>
+    <style>
+        * { box-sizing: border-box; font-family: Arial, sans-serif; }
+        body {
+            margin: 0; min-height: 100vh; display: flex;
+            justify-content: center; align-items: center;
+            padding: 20px; background: #F3F4F6;
+        }
+        .container {
+            width: 100%; max-width: 400px; padding: 30px;
+            background: white; border-radius: 10px;
+            box-shadow: 0 4px 15px #00000015;
+        }
+        .logo { width: 70px; display: block; margin: 0 auto 12px; }
+        h2 { color: #1E3A8A; text-align: center; }
+        label { display: block; margin: 13px 0 6px; color: #374151; }
+        input {
+            width: 100%; padding: 11px;
+            border: 1px solid #9CA3AF; border-radius: 6px;
+        }
+        button {
+            width: 100%; padding: 12px; margin-top: 20px;
+            background: #1E3A8A; color: white;
+            border: 0; border-radius: 6px; cursor: pointer;
+        }
+        #mensaje { font-size: 14px; line-height: 1.5; }
+        a { display: block; margin-top: 15px; text-align: center; color: #1E3A8A; }
+    </style>
 </head>
-
 <body>
+<main class="container">
+    <img src="logo.jpeg" alt="Logo GEXTEK JM" class="logo">
+    <h2>Registro de Usuario</h2>
 
-<div class="container">
+    <form id="registroForm">
+        <label for="nombres">Nombres</label>
+        <input id="nombres" type="text" maxlength="80" required>
 
-<h2>Registro de Usuario</h2>
+        <label for="apellidos">Apellidos</label>
+        <input id="apellidos" type="text" maxlength="80" required>
 
-<input type="text" placeholder="Nombres">
+        <label for="cedula">Cédula</label>
+        <input id="cedula" type="text" maxlength="20" required>
 
-<input type="text" placeholder="Apellidos">
+        <label for="fecha">Fecha de nacimiento</label>
+        <input id="fecha" type="date" required>
 
-<input type="text" placeholder="Cédula">
+        <button type="submit">Guardar</button>
+        <p id="mensaje" role="status"></p>
+    </form>
 
-<input type="date">
+    <a href="index.html">Volver al inicio de sesión</a>
+</main>
 
-<button>Guardar</button>
-
-</div>
-
+<script>
+    document.getElementById("registroForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+        document.getElementById("mensaje").textContent =
+            "Formulario validado. Los datos aún no se guardan en una base de datos.";
+    });
+</script>
 </body>
 </html>
