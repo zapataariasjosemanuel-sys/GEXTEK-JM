@@ -1,24 +1,11 @@
-
 package com.gextekjm.modelo;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.validation.constraints.DecimalMin;
-import jakarta.validation.constraints.Digits;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
-
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import java.math.BigDecimal;
 
 /**
- * Entidad Producto: representa un registro de la tabla productos.
- * Incluye validaciones para proteger la información del inventario.
+ * Entidad que representa un producto del inventario GEXTEK JM.
  */
 @Entity
 @Table(name = "productos")
@@ -29,16 +16,16 @@ public class Producto {
     private Integer id;
 
     @NotBlank(message = "El código es obligatorio.")
-    @Size(max = 50, message = "El código admite máximo 50 caracteres.")
+    @Size(max = 50)
     @Column(nullable = false, length = 50)
     private String codigo;
 
     @NotBlank(message = "El nombre es obligatorio.")
-    @Size(max = 150, message = "El nombre admite máximo 150 caracteres.")
+    @Size(max = 150)
     @Column(nullable = false, length = 150)
     private String nombre;
 
-    @Size(max = 100, message = "La categoría admite máximo 100 caracteres.")
+    @Size(max = 100)
     @Column(length = 100)
     private String categoria;
 
@@ -48,13 +35,11 @@ public class Producto {
     private Integer cantidad = 0;
 
     @NotNull(message = "El precio es obligatorio.")
-    @DecimalMin(value = "0.00", message = "El precio no puede ser negativo.")
-    @Digits(integer = 10, fraction = 2,
-            message = "El precio admite hasta 2 decimales.")
+    @DecimalMin(value = "0.00")
+    @Digits(integer = 10, fraction = 2)
     @Column(nullable = false, precision = 12, scale = 2)
     private BigDecimal precio = BigDecimal.ZERO;
 
-    // Constructor vacío requerido por JPA.
     public Producto() {
     }
 
