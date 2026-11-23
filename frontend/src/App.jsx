@@ -86,7 +86,11 @@ function App() {
             <header className="encabezado">
                 <div className="marca">
                     <h1>GEXTEK JM</h1>
+<<<<<<< HEAD
                     <p>Panel de inventario GEXTEK</p>
+=======
+                    <p>Sistema GEXTEK JM v2</p>
+>>>>>>> feature/titulo
                 </div>
                 <span className="estado">Sistema conectado</span>
             </header>
