@@ -1,4 +1,4 @@
-package com.gextekjm.conexion;
+﻿package com.gextekjm.conexion;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,7 +9,7 @@ public class Conexion {
     private static final String URL =
         "jdbc:postgresql://localhost:5432/gextek_jm";
     private static final String USUARIO = "postgres";
-    private static final String CLAVE = "Tatiana2014";   // cambia por tu contraseña
+    private static final String CLAVE = System.getenv("GEXTEK_DB_PASSWORD");
 
     public static Connection getConexion() throws SQLException {
         try {
