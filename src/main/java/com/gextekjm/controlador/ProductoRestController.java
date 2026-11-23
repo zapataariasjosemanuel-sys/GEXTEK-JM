@@ -21,14 +21,12 @@ public class ProductoRestController {
         this.servicio = servicio;
     }
 
-    // Consultar todos los productos o filtrar por texto.
     @GetMapping
     public ResponseEntity<List<Producto>> listar(
             @RequestParam(required = false) String q) {
         return ResponseEntity.ok(servicio.listar(q));
     }
 
-    // Consultar un producto por su identificador.
     @GetMapping("/{id}")
     public ResponseEntity<?> buscarPorId(@PathVariable Integer id) {
         return servicio.buscarPorId(id)
@@ -37,7 +35,6 @@ public class ProductoRestController {
                         .body(Map.of("mensaje", "Producto no encontrado.")));
     }
 
-    // Registrar un producto.
     @PostMapping
     public ResponseEntity<?> registrar(
             @Valid @RequestBody Producto producto) {
@@ -53,7 +50,6 @@ public class ProductoRestController {
         }
     }
 
-    // Actualizar un producto existente.
     @PutMapping("/{id}")
     public ResponseEntity<?> actualizar(
             @PathVariable Integer id,
@@ -75,7 +71,6 @@ public class ProductoRestController {
         }
     }
 
-    // Eliminar un producto.
     @DeleteMapping("/{id}")
     public ResponseEntity<?> eliminar(@PathVariable Integer id) {
 
