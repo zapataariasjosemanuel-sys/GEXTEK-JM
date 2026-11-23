@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+ï»¿import { useEffect, useState } from "react";
 import productoService from "./services/productoService";
 import Catalogo from "./components/Catalogo";
 import FichaProducto from "./components/FichaProducto";
@@ -86,11 +86,7 @@ function App() {
             <header className="encabezado">
                 <div className="marca">
                     <h1>GEXTEK JM</h1>
-<<<<<<< HEAD
-                    <p>Panel de inventario GEXTEK</p>
-=======
-                    <p>Sistema GEXTEK JM v2</p>
->>>>>>> feature/titulo
+                    <p>Sistema de gestiÃ³n de productos e inventario</p>
                 </div>
                 <span className="estado">Sistema conectado</span>
             </header>
@@ -101,7 +97,7 @@ function App() {
                 <form className="formulario-producto" onSubmit={guardarProducto}>
                     <input
                         name="codigo"
-                        placeholder="Código del producto"
+                        placeholder="CÃ³digo del producto"
                         value={formulario.codigo}
                         onChange={manejarCambio}
                         required
@@ -117,7 +113,7 @@ function App() {
 
                     <input
                         name="categoria"
-                        placeholder="Categoría"
+                        placeholder="CategorÃ­a"
                         value={formulario.categoria}
                         onChange={manejarCambio}
                     />
@@ -149,7 +145,7 @@ function App() {
 
                     {productoEditar && (
                         <button type="button" className="boton-cancelar" onClick={limpiarFormulario}>
-                            Cancelar edición
+                            Cancelar ediciÃ³n
                         </button>
                     )}
                 </form>
@@ -169,7 +165,7 @@ function App() {
             />
 
             <footer className="pie">
-                <p>GEXTEK JM © 2026 - Gestión de inventario</p>
+                <p>GEXTEK JM Â© 2026 - GestiÃ³n de inventario</p>
             </footer>
         </main>
     );
