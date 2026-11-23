@@ -1,4 +1,4 @@
-ï»¿import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import productoService from "./services/productoService";
 import Catalogo from "./components/Catalogo";
 import FichaProducto from "./components/FichaProducto";
@@ -86,7 +86,7 @@ function App() {
             <header className="encabezado">
                 <div className="marca">
                     <h1>GEXTEK JM</h1>
-                    <p>Sistema de gestiÃ³n de productos e inventario</p>
+                    <p>Sistema GEXTEK JM v2</p>
                 </div>
                 <span className="estado">Sistema conectado</span>
             </header>
@@ -97,7 +97,7 @@ function App() {
                 <form className="formulario-producto" onSubmit={guardarProducto}>
                     <input
                         name="codigo"
-                        placeholder="CÃ³digo del producto"
+                        placeholder="Código del producto"
                         value={formulario.codigo}
                         onChange={manejarCambio}
                         required
@@ -113,7 +113,7 @@ function App() {
 
                     <input
                         name="categoria"
-                        placeholder="CategorÃ­a"
+                        placeholder="Categoría"
                         value={formulario.categoria}
                         onChange={manejarCambio}
                     />
@@ -145,7 +145,7 @@ function App() {
 
                     {productoEditar && (
                         <button type="button" className="boton-cancelar" onClick={limpiarFormulario}>
-                            Cancelar ediciÃ³n
+                            Cancelar edición
                         </button>
                     )}
                 </form>
@@ -165,7 +165,7 @@ function App() {
             />
 
             <footer className="pie">
-                <p>GEXTEK JM Â© 2026 - GestiÃ³n de inventario</p>
+                <p>GEXTEK JM © 2026 - Gestión de inventario</p>
             </footer>
         </main>
     );
